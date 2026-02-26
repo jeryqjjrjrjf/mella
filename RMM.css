@@ -1,0 +1,181 @@
+/* --- ESTILOS POR: JERY ISMAEL CABA N --- */
+:root {
+    --primary-blue: #002D62;
+    --light-blue: #0056b3;
+    --dr-red: #CE1126;
+    --gold: #D4AF37;
+    --white: #FFFFFF;
+    --dark: #0a0a0a;
+    --gray: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* --- FONDO AZUL EN MOVIMIENTO --- */
+.dynamic-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #000b1a, #002D62, #001a33);
+    background-size: 400% 400%;
+    animation: blueFlow 20s ease infinite;
+    z-index: -2;
+}
+
+@keyframes blueFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.grain-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- NAVEGACIÓN --- */
+.navbar {
+    position: fixed;
+    width: 100%;
+    padding: 20px 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--dr-red);
+    z-index: 1000;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; }
+.logo span { color: var(--dr-red); }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links a {
+    color: white; text-decoration: none;
+    margin: 0 15px; font-size: 0.9rem;
+    text-transform: uppercase; font-weight: bold;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.author-badge {
+    background: var(--gold);
+    color: black;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+/* --- HERO --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 { font-size: 5rem; text-transform: uppercase; margin-bottom: 20px; }
+.divider { width: 150px; height: 5px; background: var(--dr-red); margin: 0 auto 30px; }
+.hero-btns { margin-top: 40px; }
+
+.btn {
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: 0.4s;
+    display: inline-block;
+}
+.btn-primary { background: var(--dr-red); color: white; }
+.btn-outline { border: 2px solid white; color: white; }
+.btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+
+/* --- GALERÍA HEROICA --- */
+.section { padding: 100px 0; }
+.section-title { font-size: 3rem; text-align: center; margin-bottom: 10px; color: var(--gold); }
+.section-subtitle { text-align: center; margin-bottom: 60px; font-style: italic; opacity: 0.8; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.gallery-item { text-align: center; }
+.img-frame {
+    position: relative;
+    border: 5px solid var(--white);
+    overflow: hidden;
+    height: 450px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    transition: 0.5s;
+}
+
+.img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+
+.img-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: rgba(206, 17, 38, 0.9);
+    color: white;
+    padding: 20px;
+    transition: 0.4s;
+}
+
+.gallery-item:hover .img-frame { border-color: var(--gold); transform: scale(1.02); }
+.gallery-item:hover .img-frame img { transform: scale(1.1); }
+.gallery-item:hover .img-overlay { bottom: 0; }
+.img-caption { margin-top: 15px; font-size: 0.9rem; color: var(--gold); }
+
+/* --- SECCIÓN BIOGRAFÍA --- */
+.bio-section { background: var(--white); color: #222; }
+.grid-2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
+.title-left { font-size: 2.5rem; margin-bottom: 30px; color: var(--primary-blue); }
+.info-block { margin-top: 30px; padding: 20px; border-left: 5px solid var(--dr-red); background: #eee; }
+
+.bio-stats { display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+.stat-item { padding: 30px; background: var(--primary-blue); color: white; border-radius: 10px; }
+.stat-num { font-size: 3rem; font-weight: 900; color: var(--gold); }
+
+/* --- BENTO TÁCTICAS --- */
+.dark-bg { background: #050505; }
+.bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+.bento-card {
+    background: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.4s;
+}
+.bento-card i { font-size: 3rem; color: var(--dr-red); margin-bottom: 20px; }
+.bento-card:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); }
+
+/* --- FOOTER --- */
+.footer { padding: 40px 0; text-align: center; background: #000; border-top: 2px solid var(--gold); }
